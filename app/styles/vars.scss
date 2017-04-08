@@ -1,0 +1,31 @@
+$pink: #cb488d;
+$green: #4ba596;
+$blue: #60b3d1;
+$yellow: #dcdc38;
+$header-bg: #ecf5f8;
+$section-bg: #f9f9f9;
+$general-bg: #f7f9fc;
+$black: #262626;
+$field-gray: #9a9a9b;
+
+$break-small: 480px;
+$break-md: 830px;
+$break-large: 1100px;
+
+@mixin flex-wrap-fix($flex-basis, $max-viewport-width: 2000px) {
+  flex-grow: 1;
+  flex-basis: $flex-basis;
+  max-width: 100%;
+
+  $multiplier: 1;
+  $current-width: 0px;
+
+  @while $current-width < $max-viewport-width {
+    $current-width: $current-width + $flex-basis;
+    $multiplier: $multiplier + 1;
+
+    @media(min-width: $flex-basis * $multiplier) {
+      max-width: percentage(1/$multiplier);
+    }
+  }
+}

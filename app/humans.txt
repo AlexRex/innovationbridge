@@ -3,11 +3,9 @@
 
 # TEAM
 
-  <name> -- <role> -- <twitter>
+  Alex Torres -- Developer -- aletormat@gmail.com
 
 # THANKS
-
-  <name>
 
 # TECHNOLOGY COLOPHON
 
