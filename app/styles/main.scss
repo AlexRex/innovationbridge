@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Montserrat:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Montserrat:400,500,700|Cousine:400,700,700i');
 @import 'vars';
 
 html, body {
@@ -17,6 +17,26 @@ h1, h2, h3, h4 {
 
 p {
   color: #2c3e50;
+}
+
+a {
+  text-decoration: none;
+  color: #2c3e50;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.in-section-name {
+  font-family: 'Cousine', monospace;
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 1.5px 1.5px 1px #d3d3d3;
+}
+
+.subtitle {
+  font-family: sans-serif;
 }
 
 .container {
