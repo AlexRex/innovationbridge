@@ -72,23 +72,38 @@
       });
   }
 
-  // Your custom JavaScript goes here
-  window.onscroll = function changeNav() {
+  if (window.location.pathname === '/innovation-bridge.html') {
     var navBar = document.getElementById('navBar');
-    var scrollPosY = window.pageYOffset | document.body.scrollTop;
 
-    if (scrollPosY > 30) {
-      navBar.className = 'nav-desktop scrolled';
-    } else if (scrollPosY <= 10) {
-      navBar.className = 'nav-desktop';
+    // Your custom JavaScript goes here
+    window.onscroll = function changeNav() {
+      var scrollPosY = window.pageYOffset | document.body.scrollTop;
+
+      if (scrollPosY > 30) {
+        navBar.className = 'nav-desktop scrolled';
+      } else if (scrollPosY <= 10) {
+        navBar.className = 'nav-desktop';
+      }
+    };
+
+    document.getElementById('close-menu').addEventListener('click', toggleMenu);
+    document.getElementById('open-menu').addEventListener('click', toggleMenu);
+    document.getElementById('mobile-menu').addEventListener('click', closeMenu);
+
+    var shiftWindow = function() {
+      scrollBy(0, -60);
+    };
+
+    if (location.hash) {
+      shiftWindow();
     }
-  };
+
+    window.addEventListener('hashchange', shiftWindow);
+  } else {
+    window.location.pathname = '/innovation-bridge.html';
+  }
 
   var mobileMenu = document.getElementById('mobile-menu');
-
-  document.getElementById('close-menu').addEventListener('click', toggleMenu);
-  document.getElementById('open-menu').addEventListener('click', toggleMenu);
-  document.getElementById('mobile-menu').addEventListener('click', closeMenu);
 
   /**
    * toggle Menu

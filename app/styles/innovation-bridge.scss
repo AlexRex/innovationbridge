@@ -405,6 +405,12 @@ $margin: 10px;
   flex-wrap: wrap;
   margin: -$margin;
 
+  .contacto-datos {
+    p {
+      margin-top: 0;
+    }
+  }
+
   .video, .twitter-container {
     @media screen and (max-width: $break-small) {
       display: none;
