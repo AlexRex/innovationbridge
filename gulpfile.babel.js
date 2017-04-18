@@ -56,6 +56,13 @@ gulp.task('images', () =>
     .pipe($.size({title: 'images'}))
 );
 
+// Assets
+gulp.task('assets', () => {
+  gulp.src('app/assets/**/*')
+    .pipe(gulp.dest('dist/assets'))
+    .pipe($.size({title: 'assets'}))
+});
+
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
   gulp.src([
@@ -175,6 +182,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
   gulp.watch(['app/images/**/*'], reload);
+  gulp.watch(['app/assets/**/*'], reload);
 });
 
 // Build and serve the output from the dist build
@@ -197,7 +205,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['lint', 'html', 'scripts', 'images', 'assets', 'copy'],
     'generate-service-worker',
     cb
   )
@@ -206,7 +214,7 @@ gulp.task('default', ['clean'], cb =>
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
   // Update the below URL to the public URL of your site
-  pagespeed('example.com', {
+  pagespeed('https://sociedadconciencia.org/innovation-bridge.html', {
     strategy: 'mobile'
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
@@ -240,6 +248,7 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
     staticFileGlobs: [
       // Add/remove glob patterns to match your directory setup.
       `${rootDir}/images/**/*`,
+      `${rootDir}/assets/**/*`,
       `${rootDir}/scripts/**/*.js`,
       `${rootDir}/styles/**/*.css`,
       `${rootDir}/*.{html,json}`
