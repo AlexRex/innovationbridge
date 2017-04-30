@@ -1,4 +1,4 @@
-@import url( 'https://fonts.googleapis.com/css?family=Cousine:400,700,700i|Roboto:300,400,700|Cutive+Mono');
+@import url( 'https://fonts.googleapis.com/css?family=Cousine:400,700,700i|Roboto:300,400,700|Cutive+Mono:700');
 @import 'vars';
 $nav-height: 84px;
 $nav-padding: 20px;
@@ -281,7 +281,6 @@ $margin: 10px;
     margin: -$margin;
 
     .speaker {
-      background-color: $general-bg;
       padding: 0;
       flex: 1 1 0px;
       min-width: 300px;
@@ -319,9 +318,59 @@ $margin: 10px;
         }
       }
 
-      &:hover {
+      &.hover {
+        background-color: $general-bg;
+      }
+
+      &.hover:hover {
         box-shadow: 0 0px 90px rgba(0, 0, 0, 0.1);
         transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+.agenda {
+  table {
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 20px;
+
+    tr {
+      .time {
+        vertical-align: top;
+        font-family: 'Cutive Mono', monospace;
+        font-weight: 700;
+        width: 150px;
+      }
+      .content {
+        vertical-align: top;
+        margin-left: 40px;
+      }
+
+      .descanso {
+        font-family: 'Cutive Mono', monospace;
+        text-align: center;
+        font-size: 25px;
+        height: 40px;
+        color: white;
+        background: rgba(75, 165, 150, 0.75);
+        border-radius: 4px;
+      }
+
+      .blue {
+        color: $blue;
+        font-weight: 700;
+      }
+
+      .pink {
+        color: $pink;
+        font-weight: 700;
+      }
+
+      .green {
+        color: $green;
+        font-weight: 700;
       }
     }
   }
@@ -386,6 +435,7 @@ $margin: 10px;
     display: flex;
     flex-wrap: wrap;
     margin: -$margin;
+    padding-bottom: 50px;
 
     div {
       padding: 0;
