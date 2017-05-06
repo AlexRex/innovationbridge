@@ -461,7 +461,7 @@ $margin: 10px;
     }
   }
 
-  .video, .twitter-container {
+  .twitter-container {
     @media screen and (max-width: $break-small) {
       display: none;
     }
@@ -482,10 +482,20 @@ $margin: 10px;
 }
 
 .recursos {
-  .recursos-container {
+  .row {
+    padding-bottom: 50px;
+  }
+
+  .recursos-container, .recursos-videos {
     display: flex;
     flex-wrap: wrap;
     margin: -$margin;
+
+    .video {
+      flex: 1 1 0px;
+      min-width: 380px;
+      margin: $margin;
+    }
 
     .recurso {
       flex: 1 1 0px;
